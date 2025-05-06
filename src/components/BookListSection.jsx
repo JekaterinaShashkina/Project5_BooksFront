@@ -28,11 +28,15 @@ function BookListSection() {
         )
     }
     return (
-        <Box mt={4}>
+        <Box mt={4} >
         <Typography variant="h5" gutterBottom>
           Book List
         </Typography>
-        <Grid container spacing={3}>
+        <Grid container spacing={3}         
+        display="flex"
+        justifyContent="center"
+        flexWrap="wrap"
+        gap={2}>
           {books.map((book) => (
             <Grid item key={book.bookId} xs={12} sm={6} md={4} lg={3}>
               <BookCard book={book}/>

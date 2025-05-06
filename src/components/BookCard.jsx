@@ -4,16 +4,16 @@ import { Link } from 'react-router-dom';
 const BookCard = ({book}) => {
     
     return (
-        <>
             <Link to={`/books/${book.bookId}`} style={{ textDecoration: 'none' }}>
             <Card sx={{        
                 width: 200,
                 height: 300,
                 display: 'flex',
                 flexDirection: 'column',
-                justifyContent: 'space-between',
+                justifyContent: 'center',
                 boxShadow: 3,
                 cursor: 'pointer',
+                margin: '10px'
                 }}>
             {book.cover_url && (
             <CardMedia
@@ -50,7 +50,6 @@ const BookCard = ({book}) => {
 
             </Card>
             </Link> 
-        </>
     )
 }
 
