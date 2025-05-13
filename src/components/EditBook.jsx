@@ -11,7 +11,7 @@ export const EditBook = ()=> {
     const { id } = useParams();
     const navigate = useNavigate();
   
-    const [bookData, setBookData] = useState(null);
+    const [_, setBookData] = useState(null);
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [publicationYear, setPublicationYear] = useState('');
