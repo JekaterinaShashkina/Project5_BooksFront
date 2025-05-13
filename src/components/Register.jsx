@@ -83,7 +83,7 @@ export const Register = () => {
             margin="normal"
             required
           />
-          <Button type="submit" variant="contained" fullWidth sx={{ mt: 2 }}>
+          <Button type="submit" variant="contained" fullWidth sx={{ mt: 2, backgroundColor:'#2c3755' }}>
             Register
           </Button>
         </form>

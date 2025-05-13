@@ -19,12 +19,9 @@ export const Login = () => {
                 username,
                 password,
             });
-            console.log(response.data.accessToken);
-            
             const token = response.data.accessToken
-
             localStorage.setItem('token', token)
-            login({username})
+            login(response.data)
             setMessage('Login is successful')
             navigate('/');
         } catch (error) {
@@ -56,7 +53,7 @@ export const Login = () => {
             margin="normal"
             required
             />
-            <Button type="submit" variant="contained" fullWidth sx={{ mt: 2 }}>
+            <Button type="submit" variant="contained" fullWidth sx={{ mt: 2, backgroundColor:'#2c3755' }}>
             Войти
             </Button>
         </form>

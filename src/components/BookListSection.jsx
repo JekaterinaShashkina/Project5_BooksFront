@@ -1,12 +1,19 @@
 import React, {useState, useEffect} from "react"
-import {Box, Typography, Grid} from '@mui/material'
+import {Box, Typography, Grid, TextField} from '@mui/material'
 import BookCard from "./BookCard"
+import Sidebar from '../components/Sidebar';
+import NewBookSection from './NewBookSection';
 import { fetchAllBooks } from "../services/BookService"
+import { filterBooks } from "../services/filterBooks"
 
 function BookListSection() {
     const [books, setBooks] = useState()
     const [loading, setLoading] = useState(true);
-
+    const [searchTerm, setSearchTerm] = useState('')
+    const [selectedCategory, setSelectedCategory] = useState(null)
+    const filteredBooks = filterBooks(books, searchTerm, selectedCategory)
+    console.log(filteredBooks);
+    
     useEffect(() => {
         const loadBooks = async () => {
             try {
@@ -29,20 +36,41 @@ function BookListSection() {
     }
     return (
         <Box mt={4} >
-        <Typography variant="h5" gutterBottom>
+        <TextField
+            label="Search"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            placeholder="Enter book name, author or category..."
+            sx={{ width: '60%', border: 'solid 1px', borderRadius: '8px' }}
+        />
+        <Typography variant="h5" gutterBottom sx={{mt: '16px', mb: '32px'}}>
           Book List
         </Typography>
-        <Grid container spacing={3}         
-        display="flex"
-        justifyContent="center"
-        flexWrap="wrap"
-        gap={2}>
-          {books.map((book) => (
-            <Grid item key={book.bookId} xs={12} sm={6} md={4} lg={3}>
-              <BookCard book={book}/>
-            </Grid>
-          ))}
-        </Grid>
+
+        <Box sx={{ display: 'flex', mt: 4 }}>
+
+          <Sidebar selectedCategory={selectedCategory} onSelect={setSelectedCategory} />
+          <Box mt={6}>
+            {filteredBooks.length > 0 ? (
+              <Grid container spacing={3}         
+                    display="flex"
+                    justifyContent="center"
+                    flexWrap="wrap"
+                    gap={2}>
+              {filteredBooks.map((book) => (
+                <Grid item key={book.bookId} xs={12} sm={6} md={4} lg={3}>
+                  <BookCard book={book}/>
+                </Grid>
+              ))}
+              </Grid>
+                ) : (
+                  <Typography variant="body2" mt={2}> Not found books with entered data</Typography>
+                )}
+              <NewBookSection />
+          </Box>
+        </Box>
+
+
       </Box>
     )
 }

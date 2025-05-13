@@ -1,7 +1,6 @@
 import { Box } from '@mui/material';
 import MainContent from '../components/MainContent';
 import Header from '../components/Header';
-import Sidebar from '../components/Sidebar';
 import Footer from '../components/Footer';
 
 function HomePage(){
@@ -11,7 +10,6 @@ function HomePage(){
             <Header/>
             </Box>
             <Box display="flex" flex="1">
-                <Sidebar/>
                 <MainContent/>
             </Box>
             <Footer/>
