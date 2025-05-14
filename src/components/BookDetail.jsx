@@ -73,11 +73,9 @@ const BookDetail = () => {
               {user?.role === 'admin' && (
                 <Box sx={{display: 'flex', gap: '10px'}}>
                 <Button
-                    variant="contained"
-                    
+                    variant="contained"                    
                     onClick={() => navigate(`/edit/${book.bookId}`)}
-                    sx={{ mt: 2, backgroundColor:'#2c3755' }}
-                  >
+                    sx={{ mt: 2, backgroundColor:'#2c3755' }}>
                     Change
                   </Button>                
                   <Button

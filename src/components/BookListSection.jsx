@@ -64,7 +64,7 @@ function BookListSection() {
               ))}
               </Grid>
                 ) : (
-                  <Typography variant="body2" mt={2}> Not found books with entered data</Typography>
+                  <Typography variant="body2" mt={2} sx={{color: 'red', fontSize: '18px'}}> Not found books with entered data</Typography>
                 )}
               <NewBookSection />
           </Box>

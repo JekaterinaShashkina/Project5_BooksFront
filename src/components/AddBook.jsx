@@ -132,7 +132,7 @@ const AddBook = () => {
                         Upload Cover
                         <input type="file" hidden onChange={(e) => setCoverFile(e.target.files[0])} />
                     </Button>
-                        <Button type="submit" variant="contained" fullWidth sx={{ mt: 3 }}>
+                        <Button type="submit" variant="contained" fullWidth sx={{ mt: 3, backgroundColor: '#2c3755' }}>
                             Add Book
                     </Button>
                 </form>
